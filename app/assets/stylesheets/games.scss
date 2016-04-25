@@ -1,0 +1,30 @@
+#board {
+  max-width: 600px;
+  width: 60%;
+  text-align: center;
+}
+
+.square {
+  width: 30%;
+  height: 120px;
+  background-color: #99ccff;
+  border: 1px groove #ff0000;
+  cursor: pointer;
+  float: left;
+}
+
+.xmove {
+  width: 30%;
+  height: 120px;
+  background-color: #cc99ff;
+  border: 1px groove #ff0000;
+  float: left;
+}
+
+.omove {
+  width: 30%;
+  height: 120px;
+  background-color: #99ffcc;
+  border: 1px groove #ff0000;
+  float: left;
+}
