@@ -1,5 +1,5 @@
 $ ->
-  //Game vars and function for initialization
+  #Game vars and function for initialization
   Game =
     data:
       turns: 0
@@ -11,18 +11,18 @@ $ ->
       @.prepareBoard()
       @.ifClick()
 
-    //Preps for a new game
+    #Preps for a new game
     prepareBoard: ->
       $("form").hide()
       Game.data.turns = 0
       $("#board").empty()
       $("<div>", {class: "square", id: square}).appendTo("#board") for square in [0..8]
 
-    //Takes submited palyer name (and dose nothing with it)
+    #Takes submited palyer name (and dose nothing with it)
     player: ->
       @data.player1 = $("input[name='player']").val()
 
-    //Handles player moves (clicks)
+    #Handles player moves (clicks)
     ifClick: ->
       $(".square").click ->
         if $(@).hasClass("square")
@@ -35,7 +35,7 @@ $ ->
           else
           	Game.done()
 
-    //generates ai move (random possible move)
+    #generates ai move (random possible move)
     aiMove: ->
       if Game.data.turns < 8
         posmove = Math.floor(Math.random() * 8)
@@ -48,14 +48,14 @@ $ ->
       	  if Game.data.gameOver == true
             Game.done()
 
-    //If the game is not over Ai makes a move
+    #If the game is not over Ai makes a move
     checkOver: ->
       if Game.data.turns < 8
         Game.aiMove()
       else
       	$('#msg2').html("Tie Game")
 
-    //Checkes if anyone has won
+    #Checkes if anyone has won
     checkWin: ->
       postitions = [0..8]
       posCheck = []
@@ -101,13 +101,13 @@ $ ->
       else
         $('#msg2').html("Game On")
 
-    //Handles end of game
+    #Handles end of game
     done: ->
       $('#msg3').html("Done")
       $('#board').hide()
       $("#playform").show();
 
-  //Handles form (but really just initilizes a new game)
+  #Handles form (but really just initilizes a new game)
   $("form").on "submit", (evt) ->
     evt.preventDefault()
     $inputs = $("input[type='text']")
